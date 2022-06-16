@@ -1,0 +1,20 @@
+COMANDOS PARA NAVEGAR NO LINUX
+
+LS PARA LEITURA DE AMBIENTE
+
+DEV
+OPS
+
+git add .
+
+git commit -m "comentario sobre as alterações"
+
+git push origin devops
+
+echo "# NomeRepositorio" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin git@github.com:Alyshop/NomeRepositorio.git
+git push -u origin master
