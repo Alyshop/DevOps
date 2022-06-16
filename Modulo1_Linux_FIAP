@@ -1,0 +1,165 @@
+*********************Comando iniciais**************
+
+Manual = man (comando)  ex: man ls
+
+help = usado como parametro para solicitar detalhes mais resumidos que o
+	man  ex: ls --help
+	
+su = você se torna um super usuario, porem você pode escolher o usuario que
+	quer se tornar. su kennedy ou su raiane
+
+apt = 	linha de comando para gerenciar pacontes, seus parâmetros são usados para instalar, procurar e remover, atualiza pacontes instalados (programas 	 entre outros) o apt update atualiza os repositores verificando se há 	alguma versão mais recente e o apr upgrade instala essa atualização
+
+sudo =  permite que faça certas operação como se fosse o root mas sem ser o root
+comando para se tornar super usuario assim podendo usar o sudo: usermod -aG sudo nome_de_usuario
+
+
+***********************Gerenciamento de Usuário**********************
+
+passwd = abreviaçao de password, permite que se faça a troca da senha do usuario
+passwd root altera a senha do root porém deve está como root ou  utilizar o sudo
+	  
+adduser = criar novo usuario, contudo necessita de privilegios root para funcionar sudo adduser Kennedy
+
+userdel = apaga usuario, contudo necessita de privilegios root para funcionar sudo userdel Kennedy
+	  
+usermod = modifica contas de usuario (necessita do sudo) (abrir manual sempre que mexer) sudo usermod -aG TI teste
+	  
+groupadd = cria um grupo de usuarios (necessita do sudo) sudo groupadd TI
+
+groupdel = apaga um grupo de usuarios (necessita do sudo) sudo groupadd TI
+
+groupod = O  comando  groupmod  modifica  os  arquivos  de  contas do sistema para as novas configuraXXes informadas na linha de comando. 
+
+
+************************ Arquivos e Pastas *********************************
+
+"/" -> é a raiz de todo o sistema linux, todas as demais são penduradas nela.
+ 
+/bin -> principais executaveis de comandos. bin de binarios
+
+/boot -> diretorio de bootagem operacional, todos os arquivos responsaveis pela inicialização do sistema ficam armazenados nesse diretorio
+ 
+/dev -> armazena pseudos-arquivos são arquivos representativos, arquivos que representam a placa de videos por exemplo.
+
+/etc -> são aquivos de configuração, armazena as configuraçoes do sistema operacional
+
+/home -> diretorio de usuario.
+
+/lib e /lib64 -> são bibliotecas de sistema, sao as "dll do windows"
+
+/lost+found -> seria como os achados e perdidos, aquivos corrompido, techo de arquivos ou verificaçao de arquivos que podem ser resgatados a qualquer momento
+
+/media e /mnt -> é um diretorio de montagem. O mnt é mais antigo, geralmente os pendrives sao montados no /media.
+
+/opt -> um diretorio adicional de instalação.
+
+/proc -> vem de processador, possue pseudos-arquivos, caso queira saber alguma configuração de processador, memória ou hardwares fisicos, ficam nesse diretorio
+
+/root -> seria o diretorio home do super usuario, fica separado do /home, fica na raiz do /root
+
+/run -> diretorio de processos, processos que estao rodando no SO
+
+/sbin -> super binario, comando  especificos para o root
+
+/srv -> diretorio de servisos do sistema, 
+
+/sys -> diretorio que guarda alguma informaçoes para dispositivos usb
+
+/tmp -> diretorio de arquivos temporarios 
+
+/usr -> diretorio onde ficam instalados os programas
+
+/var -> diretorio de arquivos variaveis (para muito), como logs de sistema que podem guardar informaçoes de banco de dados. 
+
+*********************************
+
+ls -la -> apresenta uma lista longa apresentada em detalhes.
+
+1o coluna -> drwxr-xr-x:
+1o letra:
+d = diretorio
+l = link, um aquivo que aponta para outro
+b = arquivo em formato de bits
+c = arquivo em formato de caracteres
+
+restantes das letras:
+sao permissões que o arquivo, o primeiro conjunto rwx vem de read write eXecute, quando não tem letra somente o hifem, mostra a ausencia da permissão
+*Eles possuem tem conjuntos de permissao o 
+1o pertencem ao dono do diretorio 
+2o pertecem ao grupo
+3o permissão para todos os usuários
+
+******************** Criando e mudando de Diretorio *********************
+
+pwd -> print work director, mostra o diretorio em que estamos no exato momento
+
+mkdir -> criar um novo diretorio. mkdir novo_diretorio (olhar manual)
+
+cd -> move entre os diretorios ../ volta ao diretorio anterior
+
+******************* Copiando, Movendo e Removendo arquivos *****************
+
+cp -> copiar  cp arquivo.txt (varios parametros)
+
+mv -> mover  mv aquivo e também pode ser usado para renomar arquivo
+
+rm -> remover diretorio e arquivo (rmdir apaga diretorios vazios) 
+
+
+(observar sempre o --help ou o man para saber qual parametro usar)
+
+******************** Visualizando Conteúdo de Arquivos *******************
+
+cat -> permite visualizar um arquivo
+
+head -> visualizo o arquivo o cabeçario do arquivo e posso determinar o numero de linhas que desejo visualizar. head -n 5 /home/kennedy/arquivo.txt
+
+tail -> é o processo inverso do head, pois visualiza as ultima linhas, mas pode determinar a quantidade de linhas que deseja ver. tail -n 5 /home/kennedy/arquivo.txt
+
+ less -> permite visualiar um arquivo, porem ao contrario do cat, o less nao devolver o terminal ate sair da leitura
+ 
+ ********************** Localizar e baixar arquivos ************************
+ 
+locate -> (Necessario instalação sudo apt install locate) Localiza arquivos, mas antes de executar e nessecario atualizar os bancos de dados $sudo apt updatedb
+
+grep -> localizar arquivos pelo conteudo atravês de uma palavra chave (importante colocar um local de referencia para que seja mais rapido pois sem local de referencia ele procura no sistema inteiro)
+
+wget -> permite baixar qualquer coisa da internet desde que, eu informe o endereço completo. O wget tem parametros que caso você interrompa algum download pode-se retomar de onde parou 
+
+links -> (necessario instalação. $sudo apt install links) é um navegador usado pelo terminal
+
+******************** Compressão de Arquivos ********************************
+
+unzip -> (verificar se está instalado. $sudo apt install unzip) serve para extrair de pastas zipadas, mas com alguns parametros pode-se visualizar primeiro o conteudo.
+
+**** Existe também alguns comando tipo o unrar para arquivos .rar
+
+tar -> empacatador de varios arquivos(possui varios parametros) o mais usado é o comando tar, ele consegue trabalhar com os dois comando abaixo gzip e o bzip2.
+
+gzip -> (verificar se está instalado. $sudo apt install gzip)  
+
+bzip2 ->(verificar se está instalado. $sudo apt install bzip2)
+
+
+***************** Gerenciamento de Rede ************************
+
+ifconfig -> usado para visualizar a interface de rede e ate mesmo modifica-la
+(verificar se o net-tools esta instalado$ sudo apt install net-tools)
+	enp2s0 = configuraçoes de rede cabeada
+	lo = pseudo interface de rede, é a maneira que a maquina se identifica
+	wlp3s0 = configuraçoes de interface de rede wirelles
+	
+route -> manipula a tabela de roteamento IP do  kernel.  Seu  principal  uso  é  configurar  rotas estáticas  para  hosts  ou  redes especificadas através de uma interface, após a mesma ter sido configurada com o programa
+
+nmap -> (verificar se esta instalado $sudo apt install nmap) é uma ferramenta de código aberto para exploração de rede e auditoria de segurança. Ela foi desenhada para escanear rapidamente redes amplas, embora também funcione muito bem contra hosts individuais.
+
+apache -> (verificar se esta instalado $sudo apt install apache2) e um servidor web
+
+
+
+
+
+ 
+
+  
