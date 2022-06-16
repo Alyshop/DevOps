@@ -1,6 +1,3 @@
 git comentarios
 
-teste
-
-
-aprendendo com o morenex
+git clone " dps do codigo " der espaço e o nome cria a pasta
