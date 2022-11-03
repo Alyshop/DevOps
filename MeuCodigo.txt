@@ -1,4 +1,4 @@
-COMANDOS PARA NAVEGAR NO LINUX
+COMANDOS PARa Nlals AVEGAR NO LINUX
 
 LS PARA LEITURA DE AMBIENTE
 
@@ -18,3 +18,5 @@ git commit -m "first commit"
 git branch -M master
 git remote add origin git@github.com:Alyshop/NomeRepositorio.git
 git push -u origin master
+
+teste do vim
