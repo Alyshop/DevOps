@@ -21,6 +21,9 @@ git push -u origin master
 
 teste do vim
 
+git config --global user.name "Nome Sobrenome"
+git config --global user.email email
+
 testando as alteracoes
 
 
